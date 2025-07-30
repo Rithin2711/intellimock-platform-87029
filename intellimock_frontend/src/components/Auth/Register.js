@@ -31,26 +31,41 @@ export default function Register({ onRegister, error, loading }) {
     <div className="auth-container">
       <div className="auth-box modern-auth-box">
         <div className="auth-logo-svg" aria-hidden="true">
-          {/* Same SVG as login for visual brand consistency */}
-          <svg width="48" height="48" viewBox="0 0 48 48">
+          {/* IntelliMock SVG brand icon, consistent with login */}
+          <svg width="110" height="48" viewBox="0 0 110 48">
             <defs>
               <linearGradient id="imock-logo-grad" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stopColor="#5e35b1" />
                 <stop offset="80%" stopColor="#d81b60" />
               </linearGradient>
             </defs>
-            <circle cx="24" cy="24" r="19" fill="url(#imock-logo-grad)" />
+            <circle cx="27" cy="24" r="19" fill="url(#imock-logo-grad)" />
             <text
-              x="24"
+              x="27"
               y="29"
               textAnchor="middle"
-              fontSize="18"
+              fontSize="12"
               fontWeight="bold"
               fill="#ffce00"
               fontFamily="Helvetica Neue, Arial, sans-serif"
               letterSpacing="1.5"
+              data-testid="logo-circle-text"
             >
-              IM
+              IntelliMock
+            </text>
+            {/* The text logo next to circle for more explicit branding */}
+            <text
+              x="56"
+              y="29"
+              textAnchor="start"
+              fontSize="20"
+              fontWeight="bold"
+              fill="#5e35b1"
+              fontFamily="Helvetica Neue, Arial, sans-serif"
+              letterSpacing="1.5"
+              data-testid="logo-text"
+            >
+              IntelliMock
             </text>
           </svg>
         </div>
