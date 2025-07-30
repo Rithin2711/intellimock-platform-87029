@@ -225,6 +225,28 @@
 [data-theme="dark"] .modern-auth-label {
   color: var(--color-accent-yellow);
 }
+
+/* Brand gradient title for login/register pages */
+.intellimock-gradient-title {
+  font-family: var(--font-family-base);
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin: 0 0 2rem 0;
+  background: linear-gradient(90deg, var(--color-gradient-left) 0%, var(--color-gradient-center) 50%, var(--color-gradient-right) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  filter: drop-shadow(0px 2px 9px rgba(40,53,147,0.16));
+  line-height: 1.08;
+}
+[data-theme="dark"] .intellimock-gradient-title {
+  /* Accent yellow glow for visibility if needed (but keep gradient) */
+  text-shadow: 0 2px 16px #5e35b1bb, 0 1px 11px #28359350;
+}
 [data-theme="dark"] .auth-input,
 [data-theme="dark"] .modern-auth-input {
   background: var(--color-pattern-bg);

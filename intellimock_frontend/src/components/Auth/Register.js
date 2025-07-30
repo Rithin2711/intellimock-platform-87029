@@ -69,7 +69,26 @@ export default function Register({ onRegister, error, loading }) {
             </text>
           </svg>
         </div>
-        <h1 className="brand-logo modern-brand-title">Create Your Account</h1>
+        <h1
+          className="intellimock-gradient-title"
+          style={{
+            fontFamily: "Helvetica Neue, Arial, sans-serif",
+            fontWeight: 800,
+            fontSize: "2.2rem",
+            letterSpacing: "0.1em",
+            textAlign: "center",
+            margin: "0 0 2rem 0",
+            background: "linear-gradient(90deg, #283593 0%, #5e35b1 50%, #d81b60 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            textTransform: "uppercase",
+            filter: "drop-shadow(0px 2px 9px rgba(40,53,147,0.16))",
+            lineHeight: 1.08,
+          }}
+        >
+          IntelliMock
+        </h1>
         <form className="auth-form modern-auth-form" onSubmit={handleSubmit} autoComplete="on">
           <div className="input-group">
             <label htmlFor="username" className="modern-auth-label">
