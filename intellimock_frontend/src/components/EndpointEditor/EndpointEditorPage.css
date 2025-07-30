@@ -1,0 +1,38 @@
+@import "../../design-tokens.css";
+
+.endpointeditor-root {
+  max-width: 720px;
+  margin: auto;
+  background: var(--color-main-bg);
+  padding: var(--space-8) var(--space-4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+.endpointeditor-toolbar {
+  margin-bottom: var(--space-6);
+  display: flex;
+  gap: var(--space-4);
+}
+.endpointeditor-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.endpointeditor-card {
+  background: var(--color-pattern-bg);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-5);
+  margin-bottom: var(--space-2);
+  color: var(--color-gradient-left);
+  display: flex;
+  flex-direction: column;
+}
+.endpoint-tag {
+  background: var(--color-accent-yellow);
+  color: #1a1a1a;
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-bold);
+  padding: 2px 8px;
+  margin-left: 4px;
+}

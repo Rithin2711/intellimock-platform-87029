@@ -1,0 +1,45 @@
+@import "../../design-tokens.css";
+
+.validation-root {
+  max-width: 700px;
+  margin: auto;
+  border-radius: var(--radius-lg);
+  background: var(--color-main-bg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-8) var(--space-4);
+}
+
+.validation-diff {
+  display: flex;
+  gap: var(--space-6);
+  justify-content: center;
+  margin-bottom: var(--space-6);
+}
+.validation-diff-raw {
+  background: var(--color-pattern-bg);
+  color: var(--color-gradient-left);
+  font-size: var(--font-size-sm);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  width: 40%;
+}
+
+.validation-table {
+  width: 100%;
+  margin-top: var(--space-3);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-sm);
+  background: var(--color-pattern-bg);
+}
+
+.validation-table th, .validation-table td {
+  text-align: left;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.validation-mismatch {
+  background: #fff8eb;
+  color: #d81b60;
+}

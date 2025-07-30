@@ -1,0 +1,48 @@
+@import "../../design-tokens.css";
+
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--space-8);
+  min-width: 300px;
+  max-width: 90vw;
+  z-index: 10001;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-family-base);
+  display: flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--font-size-md);
+}
+.toast-default {
+  background: var(--color-gradient-center);
+  color: var(--color-text-on-primary);
+}
+
+.toast-success {
+  background: var(--color-accent-yellow);
+  color: #1a1a1a;
+}
+
+.toast-info {
+  background: #5e35b1;
+  color: var(--color-text-on-primary);
+}
+
+.toast-error {
+  background: #d81b60;
+  color: var(--color-text-on-primary);
+}
+.toast-content {
+  flex: 1;
+}
+.toast-close {
+  margin-left: var(--space-3);
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+}

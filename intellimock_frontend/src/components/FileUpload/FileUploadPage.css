@@ -1,0 +1,39 @@
+@import "../../design-tokens.css";
+
+.fileupload-root {
+  max-width: 600px;
+  margin: auto;
+  padding: var(--space-8) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-main-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.fileupload-drop {
+  border: 2px dashed var(--color-gradient-left);
+  padding: var(--space-10);
+  border-radius: var(--radius-md);
+  text-align: center;
+  background: var(--color-pattern-bg);
+  color: var(--color-gradient-left);
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-6);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.18s;
+}
+.fileupload-drop:focus {
+  border-color: var(--color-accent-yellow);
+}
+.fileupload-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0;
+  color: var(--color-gradient-center);
+  font-size: var(--font-size-sm);
+}
+.upload-status {
+  color: var(--color-accent-yellow);
+  font-weight: var(--font-weight-semi);
+  margin-top: var(--space-3);
+}

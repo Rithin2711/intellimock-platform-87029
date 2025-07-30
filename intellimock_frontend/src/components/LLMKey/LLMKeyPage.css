@@ -1,0 +1,31 @@
+@import "../../design-tokens.css";
+
+.llmkey-root {
+  max-width: 480px;
+  margin: auto;
+  padding: var(--space-8) var(--space-4);
+  background: var(--color-main-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  color: var(--color-gradient-left);
+}
+.llmkey-input {
+  width: 100%;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+  padding: var(--space-4);
+  font-size: var(--font-size-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-pattern-bg);
+}
+.llmkey-error {
+  color: #d81b60;
+  margin-left: var(--space-3);
+  font-size: var(--font-size-sm);
+}
+.llmkey-saved {
+  color: var(--color-accent-yellow);
+  margin-left: var(--space-3);
+  font-weight: var(--font-weight-semi);
+}
