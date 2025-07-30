@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders IntelliMock header', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // Header logo is always present
+  expect(screen.getByText(/TATA ELXSI/i)).toBeInTheDocument();
+  // Tagline should be present
+  expect(screen.getByText(/Home to 8 Billion Possibilities/i)).toBeInTheDocument();
 });

@@ -1,101 +1,150 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import IM_THEME from "./theme";
 
-/**
- * HeaderBar for IntelliMock.
- * Renders the brand logo/title at left, tagline + graphic at right.
- **/
-function HeaderBar() {
+// --- UI HEADER ---
+function IMHeader() {
   return (
-    <header className="header-bar">
-      <span className="brand-logo">TATA ELXSI</span>
-      <div className="header-accent">
-        <span className="header-tagline">Home to 8 Billion Possibilities</span>
-        <span className="header-arrow">
-          {/* Stylized right arrow graphic (SVG): yellow/magenta */}
-          <svg width="32" height="32" viewBox="0 0 32 32" role="img" fill="none">
-            <g>
-              <polygon points="4,16 24,16 17,9 19,7 30,16 19,25 17,23 24,16 4,16"
-                fill="#FFC900" stroke="#E23B88" strokeWidth="2" />
-            </g>
+    <header className="im-header" role="banner">
+      <span className="im-header-logo">TATA ELXSI</span>
+      <span className="im-header-accent">
+        <span className="im-header-tagline">Home to 8 Billion Possibilities</span>
+        <span className="im-header-arrow" aria-hidden="true">
+          {/* Geometric-arrow icon */}
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <polygon
+              points="4,16 24,16 17,9 19,7 30,16 19,25 17,23 24,16 4,16"
+              fill={IM_THEME.colors.accentYellow}
+              stroke={IM_THEME.colors.primaryPink}
+              strokeWidth="2"
+            />
           </svg>
         </span>
-      </div>
+      </span>
     </header>
   );
 }
 
-/**
- * Placeholder for main IntelliMock content.
- * Slots future widgets (auth, upload, endpoint config, etc.).
- **/
-function MainContent() {
+// --- PAGE SHELLS ---
+// Individual route components with placeholder content (can be replaced/extended later)
+
+function AuthPage() {
   return (
-    <main className="content-area">
-      {/* 
-        Decorative glassmorphism effect for content ("frosted" panel).
-        - For accessibility, ensure content remains readable.
-        - See App.css for overlay styles.
-      */}
-      <div
-        aria-hidden="true"
-        className="content-glass-overlay"
-        style={{
-          position: "absolute",
-          inset: 0,
-          pointerEvents: "none",
-          zIndex: 1,
-          /* Glass effect: blurred, layered transparency for depth */
-          background:
-            "linear-gradient(135deg, rgba(255,255,255,0.64) 10%, rgba(234,231,239, 0.21) 67%, rgba(248,234,247,0.10) 100%)",
-          boxShadow:
-            "0 8px 32px 0 rgba(37,71,184,0.07), 0 1.5px 14px 0 rgba(184,46,147,0.06)",
-          backdropFilter: "blur(8px) saturate(1.5)",
-          WebkitBackdropFilter: "blur(8px) saturate(1.5)",
-          borderRadius: "16px",
-          opacity: 0.93,
-        }}
-      />
-      {/* Main placeholder content (above glass effect, for accessibility) */}
-      <section className="main-placeholder" style={{ position: "relative", zIndex: 2 }}>
-        <h1 className="page-title">Welcome to IntelliMock</h1>
-        <p className="subtitle">A smarter way to simulate, test, and validate APIs with AI.</p>
-        <div className="placeholder-section">
-          {/* Example structure for future features */}
-          <div className="placeholder-card auth-placeholder">
-            <span className="placeholder-label">Auth / Onboarding</span>
-          </div>
-          <div className="placeholder-card upload-placeholder">
-            <span className="placeholder-label">API Doc & Data Upload</span>
-          </div>
-          <div className="placeholder-card endpoint-placeholder">
-            <span className="placeholder-label">Endpoint Management</span>
-          </div>
+    <section className="im-section">
+      <h1 className="im-page-title">Sign In / Register</h1>
+      <div className="im-card">
+        <span className="im-card-label">Authentication Area</span>
+        <div className="im-placeholder">
+          User sign-in, registration forms, SSO, etc.
         </div>
-        <div className="placeholder-section">
-          <div className="placeholder-card test-placeholder">
-            <span className="placeholder-label">API Test & Validation</span>
-          </div>
-          <div className="placeholder-card profile-placeholder">
-            <span className="placeholder-label">Profile & Settings</span>
-          </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
 
+function UploadPage() {
+  return (
+    <section className="im-section">
+      <h1 className="im-page-title">API & Data Upload</h1>
+      <div className="im-card">
+        <span className="im-card-label">Upload Section</span>
+        <div className="im-placeholder">
+          Upload API docs, datasets, and sample responses.
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MocksPage() {
+  return (
+    <section className="im-section">
+      <h1 className="im-page-title">Mock Endpoints</h1>
+      <div className="im-card">
+        <span className="im-card-label">Mocks Management</span>
+        <div className="im-placeholder">
+          List, configure, and edit endpoint mocks/rules.
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ValidationPage() {
+  return (
+    <section className="im-section">
+      <h1 className="im-page-title">Response Validation</h1>
+      <div className="im-card">
+        <span className="im-card-label">Validation Results</span>
+        <div className="im-placeholder">
+          Compare mock and reference responses; highlight diffs.
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LogsPage() {
+  return (
+    <section className="im-section">
+      <h1 className="im-page-title">Platform Logs</h1>
+      <div className="im-card">
+        <span className="im-card-label">System & Audit Log</span>
+        <div className="im-placeholder">
+          View request logs, errors, and actions.
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AdminPage() {
+  return (
+    <section className="im-section">
+      <h1 className="im-page-title">Admin Control Panel</h1>
+      <div className="im-card">
+        <span className="im-card-label">Admin Area</span>
+        <div className="im-placeholder">
+          Manage users, roles, workspace, and platform-wide settings.
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NotFoundPage() {
+  return (
+    <section className="im-section">
+      <h1 className="im-page-title">Page Not Found</h1>
+      <div className="im-card im-placeholder">
+        The page you requested does not exist.
+      </div>
+    </section>
+  );
+}
+
+// --- MAIN LAYOUT & ROUTING ---
 // PUBLIC_INTERFACE
-/**
- * App root for IntelliMock.
- * Lays out HeaderBar and main content per design spec.
- */
 function App() {
   return (
-    <div className="im-root">
-      <HeaderBar />
-      <MainContent />
-    </div>
+    <Router>
+      <div>
+        <IMHeader />
+        <main className="im-content-bg" role="main">
+          <Routes>
+            <Route path="/" element={<Navigate to="/auth" replace />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/upload" element={<UploadPage />} />
+            <Route path="/mocks" element={<MocksPage />} />
+            <Route path="/validation" element={<ValidationPage />} />
+            <Route path="/logs" element={<LogsPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
