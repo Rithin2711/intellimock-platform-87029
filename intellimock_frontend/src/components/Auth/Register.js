@@ -31,9 +31,9 @@ export default function Register({ onRegister, error, loading }) {
     <div className="auth-container">
       <div className="auth-box modern-auth-box">
         <h1 className="intellimock-brand-heading" tabIndex={-1} aria-label="INTELLIMOCK">INTELLIMOCK</h1>
-        <form className="auth-form modern-auth-form" onSubmit={handleSubmit} autoComplete="on">
-          <div className="input-group">
-            <label htmlFor="username" className="modern-auth-label">
+        <form className="auth-form modern-auth-form" onSubmit={handleSubmit} autoComplete="on" style={{marginTop: 4, marginBottom: 0}}>
+          <div className="input-group" style={{marginBottom: "0.65rem"}}>
+            <label htmlFor="username" className="modern-auth-label" style={{marginBottom: 6}}>
               Username
             </label>
             <input
@@ -47,10 +47,11 @@ export default function Register({ onRegister, error, loading }) {
               required
               aria-label="Username"
               spellCheck="false"
+              style={{marginBottom: 0}}
             />
           </div>
-          <div className="input-group">
-            <label htmlFor="email" className="modern-auth-label">
+          <div className="input-group" style={{marginBottom: "0.65rem"}}>
+            <label htmlFor="email" className="modern-auth-label" style={{marginBottom: 6}}>
               Email
             </label>
             <input
@@ -63,10 +64,11 @@ export default function Register({ onRegister, error, loading }) {
               onChange={handleChange}
               required
               aria-label="Email"
+              style={{marginBottom: 0}}
             />
           </div>
-          <div className="input-group">
-            <label htmlFor="password" className="modern-auth-label">
+          <div className="input-group" style={{marginBottom: "0.65rem"}}>
+            <label htmlFor="password" className="modern-auth-label" style={{marginBottom: 6}}>
               Password
             </label>
             <input
@@ -79,10 +81,11 @@ export default function Register({ onRegister, error, loading }) {
               onChange={handleChange}
               required
               aria-label="Password"
+              style={{marginBottom: 0}}
             />
           </div>
-          <div className="input-group">
-            <label htmlFor="confirm" className="modern-auth-label">
+          <div className="input-group" style={{marginBottom: "0.65rem"}}>
+            <label htmlFor="confirm" className="modern-auth-label" style={{marginBottom: 6}}>
               Confirm Password
             </label>
             <input
@@ -95,6 +98,7 @@ export default function Register({ onRegister, error, loading }) {
               onChange={handleChange}
               required
               aria-label="Confirm password"
+              style={{marginBottom: 0}}
             />
           </div>
           {passwordMismatch && (
@@ -108,12 +112,13 @@ export default function Register({ onRegister, error, loading }) {
             className="cta-button auth-btn modern-auth-btn"
             disabled={loading || passwordMismatch}
             aria-disabled={loading || passwordMismatch}
+            style={{marginTop: "1.1rem", marginBottom: 0}}
           >
             {loading ? "Registering..." : "Sign Up"}
           </button>
         </form>
       </div>
-      <div className="auth-footer">
+      <div className="auth-footer" style={{marginTop: 12}}>
         <span>
           Already have an account? <a href="/login">Login</a>
         </span>

@@ -13,35 +13,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 16px;
-  padding-right: 16px;
+  /* Side padding for mobile, no vertical crowding */
+  padding-left: 12px;
+  padding-right: 12px;
   padding-top: 0;
   padding-bottom: 0;
 }
-
 .auth-box,
 .modern-auth-box {
   background: var(--color-main-bg);
   border-radius: 1.5rem;
   box-shadow: 0 8px 32px 0 rgba(94, 53, 177, 0.15), 0 1.5px 7px 0 rgba(40,53,147,0.06);
-  padding: var(--space-8) var(--space-4) var(--space-7);
-  min-width: 300px;
-  max-width: 370px;
+  /* Sizing */
   width: 100%;
-  margin-top: var(--space-7);
-  margin-bottom: var(--space-7);
+  max-width: 350px;
+  min-width: unset;
+  /* vertical: larger for comfort, horizontal: balanced */
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  margin: 36px 0 32px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: box-shadow 0.22s cubic-bezier(.4, .2, .2, 1), background-color 0.26s;
 }
-@media (max-width: 450px) {
+@media (max-width: 470px) {
   .auth-box, .modern-auth-box {
-    padding: var(--space-6) var(--space-2);
+    padding: 1.7rem 0.4rem 1.7rem 0.4rem;
+    margin-top: 18px;
+    margin-bottom: 20px;
+    max-width: 98vw;
     min-width: 0;
-    max-width: 99vw;
-    margin-top: var(--space-4);
-    margin-bottom: var(--space-4);
   }
 }
 

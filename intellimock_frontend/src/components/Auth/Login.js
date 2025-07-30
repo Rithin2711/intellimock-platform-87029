@@ -23,9 +23,9 @@ export default function Login({ onLogin, error, loading }) {
     <div className="auth-container">
       <div className="auth-box modern-auth-box">
         <h1 className="intellimock-brand-heading" tabIndex={-1} aria-label="INTELLIMOCK">INTELLIMOCK</h1>
-        <form className="auth-form modern-auth-form" onSubmit={handleSubmit} autoComplete="on">
-          <div className="input-group">
-            <label htmlFor="username" className="modern-auth-label">
+        <form className="auth-form modern-auth-form" onSubmit={handleSubmit} autoComplete="on" style={{marginTop: 4, marginBottom: 0}}>
+          <div className="input-group" style={{marginBottom: "0.75rem"}}>
+            <label htmlFor="username" className="modern-auth-label" style={{marginBottom: 6}}>
               Username
             </label>
             <input
@@ -40,10 +40,11 @@ export default function Login({ onLogin, error, loading }) {
               aria-label="Username"
               spellCheck="false"
               autoFocus
+              style={{marginBottom: 0}}
             />
           </div>
-          <div className="input-group">
-            <label htmlFor="password" className="modern-auth-label">
+          <div className="input-group" style={{marginBottom: "0.6rem"}}>
+            <label htmlFor="password" className="modern-auth-label" style={{marginBottom: 6}}>
               Password
             </label>
             <input
@@ -56,6 +57,7 @@ export default function Login({ onLogin, error, loading }) {
               onChange={handleChange}
               required
               aria-label="Password"
+              style={{marginBottom: 0}}
             />
           </div>
           {error && <div className="auth-error modern-auth-error" role="alert">{error}</div>}
@@ -64,13 +66,13 @@ export default function Login({ onLogin, error, loading }) {
             className="cta-button auth-btn modern-auth-btn"
             disabled={loading}
             aria-disabled={loading}
+            style={{marginTop: "1.1rem", marginBottom: 0}}
           >
             {loading ? "Signing in..." : "Login"}
           </button>
         </form>
-        {/* Optionally, bring Edit Mode toggle/button inside below if it exists */}
       </div>
-      <div className="auth-footer">
+      <div className="auth-footer" style={{marginTop: 12}}>
         <span>
           No account? <a href="/register">Sign Up</a>
         </span>
