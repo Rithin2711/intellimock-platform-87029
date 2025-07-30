@@ -22,7 +22,7 @@
 /* Layout Container */
 .im-root {
   min-height: 100vh;
-  background: var(--content-bg);
+  background: #fff; /* pure white background */
   font-family: 'Helvetica Neue', Arial, sans-serif;
   scrollbar-width: thin;
 }
@@ -40,7 +40,7 @@
   width: 100%;
   height: var(--header-height);
   min-height: var(--header-height);
-  background: var(--primary-header-bg);
+  background: var(--primary-gradient-left); /* Solid brand blue background for header */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,20 +95,17 @@
   - Responsive, accessible, and visually non-distracting.
 */
 .content-area {
-  background-color: var(--content-bg);
+  background-color: #fff; /* pure white */
   min-height: calc(100vh - var(--header-height));
   margin-top: 0;
   padding: var(--content-padding);
   position: relative;
   box-sizing: border-box;
   margin-top: 24px;
-  /* SVG geometric background pattern (hex motif with extra color) */
-  background-image: 
-    linear-gradient(120deg, rgba(37,71,184,0.17) 0%, rgba(184,46,147,0.08) 100%),
-    url('data:image/svg+xml;utf8,<svg width="48" height="40" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="24,4 44,14 44,34 24,44 4,34 4,14" stroke="%23E6E7EB" stroke-width="1.1" fill="none"/><polygon points="24,16 36,22 36,32 24,38 12,32 12,22" stroke="%23B82E93" stroke-width="0.4" fill="none"/><circle cx="24" cy="24" r="2.3" fill="%23FFC900" fill-opacity="0.23"/></svg>');
-  background-repeat: repeat;
-  background-size: 64px 52px;
-  /* Improve base layer accessibility: avoid harsh contrast */
+  /* Removed geometric pattern and background gradients for a clean interface */
+  /* background-image: ... */
+  /* background-repeat: ... */
+  /* background-size: ... */
   z-index: 0;
 }
 
