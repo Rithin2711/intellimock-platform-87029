@@ -1,104 +1,217 @@
-/* CSS Variables for Theme Management */
+/* IntelliMock Theme Variables based on Design Spec */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --primary-gradient-left: #2547B8;
+  --primary-gradient-right: #B82E93;
+  --primary-header-bg: linear-gradient(90deg, var(--primary-gradient-left), var(--primary-gradient-right));
+  --brand-text: #FFFFFF;
+  --accent-yellow: #FFC900;
+  --accent-magenta: #E23B88;
+  --content-bg: #FAFAFB;
+  --pattern-lines: #E6E7EB;
+
+  --header-height: 70px;
+  --header-padding-x: 32px;
+  --header-height-mobile: 50px;
+  --header-padding-x-mobile: 16px;
+  --content-padding: 32px;
+  --content-padding-mobile: 16px;
+
+  --font-header: 'Helvetica Neue', Arial, sans-serif;
 }
 
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
-}
-
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+/* Layout Container */
+.im-root {
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--content-bg);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header Bar Layout */
+.header-bar {
+  width: 100%;
+  height: var(--header-height);
+  min-height: var(--header-height);
+  background: var(--primary-header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--header-padding-x);
+  color: var(--brand-text);
+  box-sizing: border-box;
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 2px 16px 0 rgba(40, 44, 52, 0.04);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.brand-logo {
+  font-family: var(--font-header);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  color: var(--brand-text);
+  user-select: none;
+  white-space: nowrap;
 }
 
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+.header-accent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-tagline {
+  font-family: var(--font-header);
+  font-size: 1.05rem;
+  color: var(--brand-text);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+.header-arrow svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+/* Main Content Styling */
+.content-area {
+  background-color: var(--content-bg);
+  min-height: calc(100vh - var(--header-height));
+  margin-top: 0;
+  padding: var(--content-padding);
+  /* Subtle hex/line pattern (SVG as data URI for demo; customize as needed) */
+  background-image: url('data:image/svg+xml;utf8,<svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="14,2 26,8 26,20 14,26 2,20 2,8" stroke="%23E6E7EB" stroke-width="1" fill="none"/></svg>');
+  background-repeat: repeat;
+  background-size: 48px 40px;
+  position: relative;
+  box-sizing: border-box;
+  margin-top: 24px;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  color: #2B2941;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-size: 1.08rem;
+  margin-bottom: 2.5em;
+  color: #777d90;
+}
+
+/* Placeholder slots -- style for maintainability */
+.main-placeholder {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4em 0;
+}
+.placeholder-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.placeholder-card {
+  background: #fff;
+  border: 1.5px dashed var(--pattern-lines);
+  border-radius: 16px;
+  padding: 28px 40px;
+  min-width: 180px;
+  min-height: 86px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
+  box-shadow: 0 2px 10px 0 rgba(40,44,52,0.03);
+  opacity: 0.95;
+  margin-bottom: 14px;
+  transition: box-shadow 0.18s;
+}
+.placeholder-label {
+  color: #B82E93;
+  font-size: 1.03rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
-}
-
-.theme-toggle:active {
-  transform: translateY(0);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsiveness */
+@media (max-width: 900px) {
+  .content-area {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  .header-bar {
+    padding: 0 var(--header-padding-x-mobile);
+  }
+  .main-placeholder {
+    gap: 1.7em 0;
+  }
+  .placeholder-card {
+    padding: 18px 18px;
+    min-width: 150px;
+    font-size: 0.95rem;
   }
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
+@media (max-width: 600px) {
+  .header-bar {
+    min-height: var(--header-height-mobile);
+    height: var(--header-height-mobile);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 var(--header-padding-x-mobile);
+    gap: 5px;
   }
+  .brand-logo {
+    font-size: 1.01rem;
+    padding-top: 7px;
+  }
+  .header-accent {
+    flex-direction: row;
+    gap: 7px;
+  }
+  .header-tagline {
+    font-size: 0.92rem;
+  }
+  .content-area {
+    padding: var(--content-padding-mobile);
+    margin-top: 20px;
+    background-size: 36px 30px;
+  }
+  .page-title {
+    font-size: 1.35rem;
+  }
+  .subtitle {
+    font-size: 0.98rem;
+  }
+  .placeholder-section {
+    gap: 8px;
+  }
+  .placeholder-card {
+    padding: 10px 10px;
+    min-width: 100px;
+    min-height: 38px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Hide scrollbars on main container (for clean look) */
+.im-root {
+  scrollbar-width: thin;
+}
+.im-root::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+.im-root::-webkit-scrollbar-thumb {
+  background: #cbc6dd;
+  border-radius: 4px;
 }

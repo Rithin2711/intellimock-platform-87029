@@ -1,47 +1,76 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-// PUBLIC_INTERFACE
-function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
+/**
+ * HeaderBar for IntelliMock.
+ * Renders the brand logo/title at left, tagline + graphic at right.
+ **/
+function HeaderBar() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <header className="header-bar">
+      <span className="brand-logo">TATA ELXSI</span>
+      <div className="header-accent">
+        <span className="header-tagline">Home to 8 Billion Possibilities</span>
+        <span className="header-arrow">
+          {/* Stylized right arrow graphic (SVG): yellow/magenta */}
+          <svg width="32" height="32" viewBox="0 0 32 32" role="img" fill="none">
+            <g>
+              <polygon points="4,16 24,16 17,9 19,7 30,16 19,25 17,23 24,16 4,16"
+                fill="#FFC900" stroke="#E23B88" strokeWidth="2" />
+            </g>
+          </svg>
+        </span>
+      </div>
+    </header>
+  );
+}
+
+/**
+ * Placeholder for main IntelliMock content.
+ * Slots future widgets (auth, upload, endpoint config, etc.).
+ **/
+function MainContent() {
+  return (
+    <main className="content-area">
+      {/* Placeholder sections for future: */}
+      <section className="main-placeholder">
+        <h1 className="page-title">Welcome to IntelliMock</h1>
+        <p className="subtitle">A smarter way to simulate, test, and validate APIs with AI.</p>
+        <div className="placeholder-section">
+          {/* Example structure for future features */}
+          <div className="placeholder-card auth-placeholder">
+            <span className="placeholder-label">Auth / Onboarding</span>
+          </div>
+          <div className="placeholder-card upload-placeholder">
+            <span className="placeholder-label">API Doc & Data Upload</span>
+          </div>
+          <div className="placeholder-card endpoint-placeholder">
+            <span className="placeholder-label">Endpoint Management</span>
+          </div>
+        </div>
+        <div className="placeholder-section">
+          <div className="placeholder-card test-placeholder">
+            <span className="placeholder-label">API Test & Validation</span>
+          </div>
+          <div className="placeholder-card profile-placeholder">
+            <span className="placeholder-label">Profile & Settings</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+// PUBLIC_INTERFACE
+/**
+ * App root for IntelliMock.
+ * Lays out HeaderBar and main content per design spec.
+ */
+function App() {
+  return (
+    <div className="im-root">
+      <HeaderBar />
+      <MainContent />
     </div>
   );
 }
