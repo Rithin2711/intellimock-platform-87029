@@ -43,21 +43,25 @@ function App() {
 
   // PUBLIC_INTERFACE
   function handleLogin(username, password) {
-    // TODO: Replace with backend call
-    if (username === "demo" && password === "intellimock") {
-      setUser({ username });
-      setSession({ username });
+    // Mock only 'user'/'user' as valid credentials
+    if (username === "user" && password === "user") {
+      setUser({ username: "user" });
+      setSession({ username: "user" });
       setToast({ message: "Login success!", type: "success" });
     } else {
-      setToast({ message: "Invalid username or password.", type: "error" });
+      setToast({ message: "Invalid username or password. (Hint: use 'user'/'user')", type: "error" });
     }
   }
   // PUBLIC_INTERFACE
   function handleRegister(username, email, password) {
-    // TODO: Replace with backend call
-    setUser({ username, email });
-    setSession({ username, email });
-    setToast({ message: "Registration successful!", type: "success" });
+    // Mock registration: only 'user'/'user' is accepted (simulate just like login)
+    if (username === "user" && password === "user") {
+      setUser({ username: "user", email });
+      setSession({ username: "user", email });
+      setToast({ message: "Registration successful (user=user).", type: "success" });
+    } else {
+      setToast({ message: "Only the username/password 'user' is allowed for demo. (Hint: use 'user'/'user')", type: "error" });
+    }
   }
   // PUBLIC_INTERFACE
   function handleLogout() {
