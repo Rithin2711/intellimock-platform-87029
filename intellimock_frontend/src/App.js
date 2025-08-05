@@ -72,14 +72,6 @@ function App() {
 
   return (
     <div className="App">
-      <button
-        className="theme-toggle"
-        onClick={toggleTheme}
-        aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-        style={{ position: "absolute", right: 20, top: 20, zIndex: 10 }}
-      >
-        {theme === "light" ? "🌙 Dark" : "☀️ Light"}
-      </button>
       <Router>
         <Routes>
           {!user ? (
@@ -90,6 +82,14 @@ function App() {
             </>
           ) : (
             <>
+              <button
+                className="theme-toggle"
+                onClick={toggleTheme}
+                aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+                style={{ position: "absolute", right: 20, top: 20, zIndex: 10 }}
+              >
+                {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+              </button>
               <Route path="/" element={<Dashboard user={user} onLogout={handleLogout} />} />
               <Route path="/upload" element={<FileUploadPage user={user} />} />
               <Route path="/endpoints" element={<EndpointEditorPage user={user} />} />
